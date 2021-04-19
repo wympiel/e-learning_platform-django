@@ -13,7 +13,7 @@ def path_and_rename(instance, filename):
     return os.path.join(upload_to, filename)
 
 
-class UserProfile(models.Model):
+class UserProfileInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.CharField(max_length=150, blank=True)
     profile_pic = models.ImageField(upload_to=path_and_rename, verbose_name='Profile Picture', blank=True)
