@@ -47,9 +47,9 @@ def user_login(request):
                 login(request, user)
                 return HttpResponseRedirect(reverse('index'))
             else:
-                return HttpResponse('KONTO JEST NIEAKTYWNE')
+                return HttpResponse("KONTO JEST NIEAKTYWNE")
         else:
-            return HttpResponse('Proszę podaj prawidłowe id i hasło')
+            return HttpResponse("Proszę podaj prawidłowe id i hasło")
     else:
         return render(request, 'app_users/login.html')
 

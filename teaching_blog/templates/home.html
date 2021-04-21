@@ -2,15 +2,16 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Start</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
         <div class="jumbotron">
-            <a href="#">Home</a>
-            <a href="#">Login</a>
-            <a href="#">Register</a>
+            <a href="{% url 'index' %}">Start</a>
+            <a href="{% url 'user_login' %}">Logowanie</a>
+            <a href="{% url 'register' %}">Rejestracja</a>
+            <a href="{% url 'user_logout' %}">Wylogowanie</a>
             <h1>To jest strona startowa.</h1>
             {% block content %}
 
