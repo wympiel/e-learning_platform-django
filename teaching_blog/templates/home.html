@@ -9,9 +9,12 @@
     <div class="container">
         <div class="jumbotron">
             <a href="{% url 'index' %}">Start</a>
-            <a href="{% url 'user_login' %}">Logowanie</a>
             <a href="{% url 'register' %}">Rejestracja</a>
+            {%  if user.is_authenticated %}
             <a href="{% url 'user_logout' %}">Wylogowanie</a>
+            {%  else %}
+            <a href="{% url 'user_login' %}">Logowanie</a>
+            {% endif %}
             <h1>To jest strona startowa.</h1>
             {% block content %}
 

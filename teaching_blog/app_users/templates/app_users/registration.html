@@ -2,15 +2,15 @@
 
 {% block content %}
     {% if registered %}
-    <h1>Dziękujemy za rejestrację.</h1>
+        <h1>Dziękujemy za rejestrację.</h1>
     {% else %}
         <h3>Proszę wypełnić formularz:</h3>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{  user_form }}
             {{  profile_form }}
-            <input type="submit" value="Register" class="btn btn-primary btn-block">
+            <input type="submit" value="Zarejestruj" class="btn btn-primary btn-block">
         </form>
     {% endif %}
 
-{%endblock%}
+{% endblock %}

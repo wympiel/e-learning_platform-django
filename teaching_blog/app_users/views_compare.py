@@ -1,17 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
 from .forms import UserForm, UserProfileInfoForm
-from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-
-
-def index(request):
-    return render(request, 'home.html')
+from django.contrib.auth import authenticate, login, logout
 
 
 def user_login(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
 
@@ -24,7 +20,9 @@ def user_login(request):
             else:
                 return HttpResponse("ACCOUNT IS DEACTIVATED")
         else:
-            return HttpResponse("Proszę podaj prawidłowe id i hasło")
+            return HttpResponse("Please use correct id and password")
+            # return HttpResponseRedirect(reverse('register'))
+
     else:
         return render(request, 'app_users/login.html')
 
@@ -41,9 +39,10 @@ def register(request):
     if request.method == "POST":
         user_form = UserForm(data=request.POST)
         profile_form = UserProfileInfoForm(data=request.POST)
+
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
-            user.set_password(user.password)
+            # user.set_password(user.password)
             user.save()
 
             profile = profile_form.save(commit=False)

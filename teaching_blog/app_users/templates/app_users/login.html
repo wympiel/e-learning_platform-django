@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <label for="username">Nazwa użytkownika: </label>
+    <input type="text" name="username" placeholder="Username" class="form-control">
+
+    <label for="password">Hasło: </label>
+    <input type="password" name="password" class="form-control">
+
+        <input type="submit" value="Zaloguj się">
+
+</form>
+
+{%endblock%}
